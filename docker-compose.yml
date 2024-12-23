@@ -1,0 +1,38 @@
+services:
+
+  # para construir el proyecto desde arquetipo
+  # tomcat-create:
+  #   image: udemy-app
+  #   container_name: udemy-app
+  #   build: ./build
+  #   volumes:
+  #     - ./app:/app:rw
+  #   command: tail -f /dev/null
+
+  tomcat:
+    image: udemy-app
+    container_name: udemy-app
+    ports:
+        - 8080:8080
+    volumes:
+      - ./app:/app:rw
+      - ./app/cursojpa/target/cursojpa:/usr/local/tomcat/webapps/cursojpa
+
+# volumes:
+#   udemy-mysql-data:
+#     driver: local
+  # tomcat_data:
+  #   driver: local
+
+# -------CREAR DESDE ARQUETIPO DE CERO
+# docker compose up --build tomcat-create
+# ---attach shell-----
+# docker exec -it udemy-app bash
+# mvn archetype:generate -DgroupId=com.dabas.udemy -DartifactId=cursojpa -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+# cd cursojpa
+# mvn package
+
+# ------ INICIAR TOMCAT -------
+# docker compose up -d tomcat
+
+

@@ -1,0 +1,2 @@
+
+mvn archetype:generate -DgroupId=com.dabas.udemy-jsf -DartifactId=app -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
